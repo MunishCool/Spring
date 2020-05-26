@@ -60,28 +60,12 @@ public class Account {
 		this.accountStatus = accountStatus;
 	}
 
-	public String getcustomerEmail() {
-		return customerEmail;
+	public int getId() {
+		return id;
 	}
 
-	public void setcustomerEmail(String customerEmail) {
-		this.customerEmail = customerEmail;
-	}
-
-	public String getcustomerAddress() {
-		return customerAddress;
-	}
-
-	public void setcustomerAddress(String customerAddress) {
-		this.customerAddress = customerAddress;
-	}
-
-	public String getcustomerName() {
-		return customerName;
-	}
-
-	public BigDecimal getBalance() {
-		return balance;
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public AccountType getAccountType() {
@@ -90,6 +74,30 @@ public class Account {
 
 	public void setAccountType(AccountType accountType) {
 		this.accountType = accountType;
+	}
+
+	public String getCustomerName() {
+		return customerName;
+	}
+
+	public void setCustomerName(String customerName) {
+		this.customerName = customerName;
+	}
+
+	public String getCustomerEmail() {
+		return customerEmail;
+	}
+
+	public void setCustomerEmail(String customerEmail) {
+		this.customerEmail = customerEmail;
+	}
+
+	public String getCustomerAddress() {
+		return customerAddress;
+	}
+
+	public void setCustomerAddress(String customerAddress) {
+		this.customerAddress = customerAddress;
 	}
 
 	public String getCustomerMobile() {
@@ -116,36 +124,8 @@ public class Account {
 		this.customerPassword = customerPassword;
 	}
 
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public String getCustomerName() {
-		return customerName;
-	}
-
-	public void setCustomerName(String customerName) {
-		this.customerName = customerName;
-	}
-
-	public String getCustomerEmail() {
-		return customerEmail;
-	}
-
-	public void setCustomerEmail(String customerEmail) {
-		this.customerEmail = customerEmail;
-	}
-
-	public String getCustomerAddress() {
-		return customerAddress;
-	}
-
-	public void setCustomerAddress(String customerAddress) {
-		this.customerAddress = customerAddress;
+	public BigDecimal getBalance() {
+		return balance;
 	}
 
 	public void setBalance(BigDecimal balance) {

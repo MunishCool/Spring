@@ -30,7 +30,7 @@ public class TransactionController {
 
 	@GetMapping("/transactions/{id}")
 	private List<Transaction> getAllTransactionsByUserId(@PathVariable("id") int id) {
-		List<Transaction> userTransactions = ((Collection<Transaction>) getAllTransactions()).stream().filter(t -> {
+		List<Transaction> userTransactions = ((Collection<Transaction>) transactionService.getAllTransactions()).stream().filter(t -> {
 			return t.getToAccountId().equals(Long.valueOf(id));
 		}).collect(Collectors.toList());
 

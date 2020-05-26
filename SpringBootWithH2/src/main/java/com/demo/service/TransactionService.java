@@ -40,13 +40,13 @@ public class TransactionService {
 	public void saveOrUpdate(Transaction transaction) {
 
 		// Commission and deduction logic
-		BigDecimal currentAmount = transaction.getAmount(); // 100
+		BigDecimal currentAmount = transaction.getAmount();
 
-		Double d = currentAmount.doubleValue(); // 100
+		Double d = currentAmount.doubleValue();
 
-		double actualAmountA = d * 0.5 / 100; // munish 99.8
+		double actualAmountA = d * 0.5 / 100;
 
-		double actualAmountB = d * 0.2 / 100; // 0.5 to shivraj
+		double actualAmountB = d * 0.2 / 100;
 
 		transaction.setAmount(BigDecimal.valueOf(actualAmountA));
 		transactionRepository.save(transaction);
@@ -55,10 +55,14 @@ public class TransactionService {
 		// update both the accounts
 
 		Optional<Account> accountA = accountRepository.findById(transaction.getToAccountId().intValue());
-		accountA.get().setBalance(BigDecimal.valueOf(actualAmountA));
+		BigDecimal currentBalanceA = accountA.get().getBalance();
+
+		accountA.get().setBalance(currentBalanceA.add(BigDecimal.valueOf(actualAmountA)));
 
 		Optional<Account> accountB = accountRepository.findById(transaction.getFromAccountId().intValue());
-		accountB.get().setBalance((BigDecimal.valueOf(actualAmountB)));
+		BigDecimal currentBalanceB = accountB.get().getBalance();
+
+		accountB.get().setBalance(currentBalanceB.add(BigDecimal.valueOf(actualAmountB)));
 
 		accountRepository.save(accountA.get());
 		accountRepository.save(accountB.get());
